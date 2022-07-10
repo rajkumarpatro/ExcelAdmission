@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_exceladModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_COURSE">
+          <Key>
+            <PropertyRef Name="COURSE_ID" />
+          </Key>
+          <Property Name="COURSE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COURSE" Type="varchar" MaxLength="50" />
+          <Property Name="OFFLINE_FEES" Type="int" />
+          <Property Name="ONLINE_FEES" Type="int" />
+          <Property Name="ISACTIVE" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TBL_ENQUIRY">
+          <Key>
+            <PropertyRef Name="E_ID" />
+          </Key>
+          <Property Name="E_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STUDENT" Type="nvarchar" MaxLength="100" />
+          <Property Name="CONTACT" Type="varchar" MaxLength="10" />
+          <Property Name="PLACE" Type="varchar" MaxLength="50" />
+          <Property Name="COURSE_ID" Type="int" />
+          <Property Name="MODE_OF_CLASS" Type="bit" />
+          <Property Name="MESSAGE" Type="nvarchar" MaxLength="200" />
+          <Property Name="DATETIMESTAMP" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TBL_SUBJECTS">
+          <Key>
+            <PropertyRef Name="SUBJECT_ID" />
+          </Key>
+          <Property Name="SUBJECT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COURSE_ID" Type="int" />
+          <Property Name="SUBJECT" Type="varchar" MaxLength="50" />
+          <Property Name="OFFLINE_FEES" Type="int" />
+          <Property Name="ONLINE_FEES" Type="int" />
+          <Property Name="ISACTIVE" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_USERS">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DESIGNATION" Type="varchar" MaxLength="30" />
+          <Property Name="BRANCH" Type="varchar" MaxLength="50" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="CONTACT1" Type="varchar" MaxLength="10" />
+          <Property Name="CONTACT2" Type="varchar" MaxLength="10" />
+          <Property Name="EMAIL_ID" Type="varchar" MaxLength="60" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="200" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
+          <Property Name="ISACTIVE" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="db_exceladModelStoreContainer">
+          <EntitySet Name="TBL_COURSE" EntityType="Self.TBL_COURSE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SUBJECTS" EntityType="Self.TBL_SUBJECTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_USERS" EntityType="Self.TBL_USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_ENQUIRY" EntityType="Self.TBL_ENQUIRY" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TBL_ENQUIRY].[E_ID] AS [E_ID], 
+    [TBL_ENQUIRY].[STUDENT] AS [STUDENT], 
+    [TBL_ENQUIRY].[CONTACT] AS [CONTACT], 
+    [TBL_ENQUIRY].[PLACE] AS [PLACE], 
+    [TBL_ENQUIRY].[COURSE_ID] AS [COURSE_ID], 
+    [TBL_ENQUIRY].[MODE_OF_CLASS] AS [MODE_OF_CLASS], 
+    [TBL_ENQUIRY].[MESSAGE] AS [MESSAGE], 
+    [TBL_ENQUIRY].[DATETIMESTAMP] AS [DATETIMESTAMP]
+    FROM [dbo].[TBL_ENQUIRY] AS [TBL_ENQUIRY]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_exceladModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBL_COURSE">
+          <Key>
+            <PropertyRef Name="COURSE_ID" />
+          </Key>
+          <Property Name="COURSE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COURSE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OFFLINE_FEES" Type="Int32" />
+          <Property Name="ONLINE_FEES" Type="Int32" />
+          <Property Name="ISACTIVE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBL_SUBJECTS">
+          <Key>
+            <PropertyRef Name="SUBJECT_ID" />
+          </Key>
+          <Property Name="SUBJECT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COURSE_ID" Type="Int32" />
+          <Property Name="SUBJECT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OFFLINE_FEES" Type="Int32" />
+          <Property Name="ONLINE_FEES" Type="Int32" />
+          <Property Name="ISACTIVE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBL_USERS">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESIGNATION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BRANCH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="CONTACT1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_ID" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISACTIVE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBL_ENQUIRY">
+          <Key>
+            <PropertyRef Name="E_ID" />
+          </Key>
+          <Property Name="E_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STUDENT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CONTACT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PLACE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COURSE_ID" Type="Int32" />
+          <Property Name="MODE_OF_CLASS" Type="Boolean" />
+          <Property Name="MESSAGE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DATETIMESTAMP" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="db_exceladEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_COURSE" EntityType="Self.TBL_COURSE" />
+          <EntitySet Name="TBL_SUBJECTS" EntityType="Self.TBL_SUBJECTS" />
+          <EntitySet Name="TBL_USERS" EntityType="Self.TBL_USERS" />
+          <EntitySet Name="TBL_ENQUIRY" EntityType="Self.TBL_ENQUIRY" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_exceladModelStoreContainer" CdmEntityContainer="db_exceladEntities">
+          <EntitySetMapping Name="TBL_COURSE">
+            <EntityTypeMapping TypeName="db_exceladModel.TBL_COURSE">
+              <MappingFragment StoreEntitySet="TBL_COURSE">
+                <ScalarProperty Name="COURSE_ID" ColumnName="COURSE_ID" />
+                <ScalarProperty Name="COURSE" ColumnName="COURSE" />
+                <ScalarProperty Name="OFFLINE_FEES" ColumnName="OFFLINE_FEES" />
+                <ScalarProperty Name="ONLINE_FEES" ColumnName="ONLINE_FEES" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SUBJECTS">
+            <EntityTypeMapping TypeName="db_exceladModel.TBL_SUBJECTS">
+              <MappingFragment StoreEntitySet="TBL_SUBJECTS">
+                <ScalarProperty Name="SUBJECT_ID" ColumnName="SUBJECT_ID" />
+                <ScalarProperty Name="COURSE_ID" ColumnName="COURSE_ID" />
+                <ScalarProperty Name="SUBJECT" ColumnName="SUBJECT" />
+                <ScalarProperty Name="OFFLINE_FEES" ColumnName="OFFLINE_FEES" />
+                <ScalarProperty Name="ONLINE_FEES" ColumnName="ONLINE_FEES" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_USERS">
+            <EntityTypeMapping TypeName="db_exceladModel.TBL_USERS">
+              <MappingFragment StoreEntitySet="TBL_USERS">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="CONTACT1" ColumnName="CONTACT1" />
+                <ScalarProperty Name="CONTACT2" ColumnName="CONTACT2" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_ENQUIRY">
+            <EntityTypeMapping TypeName="db_exceladModel.TBL_ENQUIRY">
+              <MappingFragment StoreEntitySet="TBL_ENQUIRY">
+                <ScalarProperty Name="E_ID" ColumnName="E_ID" />
+                <ScalarProperty Name="STUDENT" ColumnName="STUDENT" />
+                <ScalarProperty Name="CONTACT" ColumnName="CONTACT" />
+                <ScalarProperty Name="PLACE" ColumnName="PLACE" />
+                <ScalarProperty Name="COURSE_ID" ColumnName="COURSE_ID" />
+                <ScalarProperty Name="MODE_OF_CLASS" ColumnName="MODE_OF_CLASS" />
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+                <ScalarProperty Name="DATETIMESTAMP" ColumnName="DATETIMESTAMP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
