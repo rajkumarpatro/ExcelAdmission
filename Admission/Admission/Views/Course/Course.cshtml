@@ -1,0 +1,66 @@
+﻿@model DataModel.CourseModel
+
+<script src="~/Scripts/custom/course/courseindex.js"></script>
+<script src="~/Scripts/custom/course/courseDatatable.js"></script>
+
+
+
+<!-- [ Form Validation ] start -->
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Course Form</h5>
+        </div>
+        <div class="card-body">
+            <form id="frmCourse">
+                @Html.HiddenFor(x=> x.COURSE_ID)
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Course Name</label>
+                            @Html.TextBoxFor(m => m.COURSE, new { @class = "form-control", @required = "required" })
+                            <label style="display: " id="COURSE-error" class="error jquery-validation-error small form-text invalid-feedback" for="COURSE">This field is required.</label>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label class="form-label">Online fee</label>
+                            @Html.TextBoxFor(m => m.ONLINE_FEES, new { @class = "form-control", @type = "number" })
+
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label class="form-label">Offline fee</label>
+                            @Html.TextBoxFor(m => m.OFFLINE_FEES, new { @class = "form-control", @type = "number" })
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label class="form-label">Is Active</label>
+                            <input class="chktoggle" type="checkbox" @(Model.ISACTIVE ?? false ? "checked" : "") id="ISACTIVE" name="ISACTIVE"
+                                   data-size="sm" data-toggle="toggle" data-on="YES" data-off="NO"
+                                   data-onstyle="success" data-offstyle="danger">
+                        </div>
+                    </div>
+                    <div class="col-md-3" style=" margin-top: 30px;">
+                        <button type="button" id="btnAdd" class="btn btn-sm btn-outline-primary">Add Course</button>
+                        <button type="button" id="btnCancel" style="display: none" class="btn btn-sm btn-outline-primary">Cancel update</button>
+                    </div>
+                </div>
+            </form>
+
+            <hr />
+            <table id="courseTable" class="table table-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    var AddCourse = "@Url.Content("~/Course/AddCourse")";
+    var GetCourseList = "@Url.Content("~/Course/GetCourseList")";
+    var DeleteCourse = "@Url.Content("~/Course/DeleteCourse")";
+    var GetCourseListById = "@Url.Content("~/Course/GetCourseListById")";
+
+</script>
