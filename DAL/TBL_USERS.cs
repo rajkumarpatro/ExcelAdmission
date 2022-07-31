@@ -22,8 +22,8 @@ namespace DAL
     
         public int USER_ID { get; set; }
         public string USER_NAME { get; set; }
-        public string DESIGNATION { get; set; }
-        public string BRANCH { get; set; }
+        public Nullable<int> DESIGNATION_ID { get; set; }
+        public Nullable<int> BRANCH_ID { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
         public string CONTACT1 { get; set; }
         public string CONTACT2 { get; set; }
@@ -31,8 +31,6 @@ namespace DAL
         public string ADDRESS { get; set; }
         public string PASSWORD { get; set; }
         public Nullable<bool> ISACTIVE { get; set; }
-        public Nullable<int> DESIGNATION_ID { get; set; }
-        public Nullable<int> BRANCH_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_ADMISSION> TBL_ADMISSION { get; set; }

@@ -27,10 +27,10 @@ namespace DAL
     
         public virtual DbSet<TBL_COURSE> TBL_COURSE { get; set; }
         public virtual DbSet<TBL_SUBJECTS> TBL_SUBJECTS { get; set; }
-        public virtual DbSet<TBL_USERS> TBL_USERS { get; set; }
         public virtual DbSet<TBL_ENQUIRY> TBL_ENQUIRY { get; set; }
         public virtual DbSet<TBL_ADMISSION> TBL_ADMISSION { get; set; }
         public virtual DbSet<TBL_BRANCH> TBL_BRANCH { get; set; }
         public virtual DbSet<TBL_DESIGNATION> TBL_DESIGNATION { get; set; }
+        public virtual DbSet<TBL_USERS> TBL_USERS { get; set; }
     }
 }

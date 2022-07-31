@@ -136,7 +136,7 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_USERS_TBL_BRANCH">
+        <Association Name="FK_TBL_USERS_TBL_BRANCH1">
           <End Role="TBL_BRANCH" Type="Self.TBL_BRANCH" Multiplicity="0..1" />
           <End Role="TBL_USERS" Type="Self.TBL_USERS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -148,7 +148,7 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_USERS_TBL_DESIGNATION">
+        <Association Name="FK_TBL_USERS_TBL_DESIGNATION1">
           <End Role="TBL_DESIGNATION" Type="Self.TBL_DESIGNATION" Multiplicity="0..1" />
           <End Role="TBL_USERS" Type="Self.TBL_USERS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -187,11 +187,11 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
             <End Role="TBL_COURSE" EntitySet="TBL_COURSE" />
             <End Role="TBL_SUBJECTS" EntitySet="TBL_SUBJECTS" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_USERS_TBL_BRANCH" Association="Self.FK_TBL_USERS_TBL_BRANCH">
+          <AssociationSet Name="FK_TBL_USERS_TBL_BRANCH1" Association="Self.FK_TBL_USERS_TBL_BRANCH1">
             <End Role="TBL_BRANCH" EntitySet="TBL_BRANCH" />
             <End Role="TBL_USERS" EntitySet="TBL_USERS" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_USERS_TBL_DESIGNATION" Association="Self.FK_TBL_USERS_TBL_DESIGNATION">
+          <AssociationSet Name="FK_TBL_USERS_TBL_DESIGNATION1" Association="Self.FK_TBL_USERS_TBL_DESIGNATION1">
             <End Role="TBL_DESIGNATION" EntitySet="TBL_DESIGNATION" />
             <End Role="TBL_USERS" EntitySet="TBL_USERS" />
           </AssociationSet>
@@ -223,27 +223,6 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           <Property Name="ISACTIVE" Type="Boolean" />
           <NavigationProperty Name="TBL_COURSE" Relationship="db_exceladModel.FK_TBL_SUBJECTS_TBL_COURSE" FromRole="TBL_SUBJECTS" ToRole="TBL_COURSE" />
         </EntityType>
-        <EntityType Name="TBL_USERS">
-          <Key>
-            <PropertyRef Name="USER_ID" />
-          </Key>
-          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DESIGNATION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="BRANCH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DOB" Type="DateTime" Precision="3" />
-          <Property Name="CONTACT1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="CONTACT2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="EMAIL_ID" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ISACTIVE" Type="Boolean" />
-          <Property Name="DESIGNATION_ID" Type="Int32" />
-          <Property Name="BRANCH_ID" Type="Int32" />
-          <NavigationProperty Name="TBL_ADMISSION" Relationship="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" FromRole="TBL_USERS" ToRole="TBL_ADMISSION" />
-          <NavigationProperty Name="TBL_BRANCH" Relationship="db_exceladModel.FK_TBL_USERS_TBL_BRANCH" FromRole="TBL_USERS" ToRole="TBL_BRANCH" />
-          <NavigationProperty Name="TBL_DESIGNATION" Relationship="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION" FromRole="TBL_USERS" ToRole="TBL_DESIGNATION" />
-        </EntityType>
         <EntityType Name="TBL_ENQUIRY">
           <Key>
             <PropertyRef Name="E_ID" />
@@ -260,24 +239,24 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
         <EntityContainer Name="db_exceladEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TBL_COURSE" EntityType="Self.TBL_COURSE" />
           <EntitySet Name="TBL_SUBJECTS" EntityType="Self.TBL_SUBJECTS" />
-          <EntitySet Name="TBL_USERS" EntityType="Self.TBL_USERS" />
           <EntitySet Name="TBL_ENQUIRY" EntityType="Self.TBL_ENQUIRY" />
           <EntitySet Name="TBL_ADMISSION" EntityType="db_exceladModel.TBL_ADMISSION" />
           <EntitySet Name="TBL_BRANCH" EntityType="db_exceladModel.TBL_BRANCH" />
           <EntitySet Name="TBL_DESIGNATION" EntityType="db_exceladModel.TBL_DESIGNATION" />
-          <AssociationSet Name="FK_TBL_ADMISSION_TBL_USERS" Association="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS">
-            <End Role="TBL_USERS" EntitySet="TBL_USERS" />
-            <End Role="TBL_ADMISSION" EntitySet="TBL_ADMISSION" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TBL_USERS_TBL_BRANCH" Association="db_exceladModel.FK_TBL_USERS_TBL_BRANCH">
-            <End Role="TBL_BRANCH" EntitySet="TBL_BRANCH" />
-            <End Role="TBL_USERS" EntitySet="TBL_USERS" />
-          </AssociationSet>
           <AssociationSet Name="FK_TBL_SUBJECTS_TBL_COURSE" Association="db_exceladModel.FK_TBL_SUBJECTS_TBL_COURSE">
             <End Role="TBL_COURSE" EntitySet="TBL_COURSE" />
             <End Role="TBL_SUBJECTS" EntitySet="TBL_SUBJECTS" />
           </AssociationSet>
-          <AssociationSet Name="FK_TBL_USERS_TBL_DESIGNATION" Association="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION">
+          <EntitySet Name="TBL_USERS" EntityType="db_exceladModel.TBL_USERS" />
+          <AssociationSet Name="FK_TBL_ADMISSION_TBL_USERS" Association="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS">
+            <End Role="TBL_USERS" EntitySet="TBL_USERS" />
+            <End Role="TBL_ADMISSION" EntitySet="TBL_ADMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_USERS_TBL_BRANCH1" Association="db_exceladModel.FK_TBL_USERS_TBL_BRANCH1">
+            <End Role="TBL_BRANCH" EntitySet="TBL_BRANCH" />
+            <End Role="TBL_USERS" EntitySet="TBL_USERS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_USERS_TBL_DESIGNATION1" Association="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION1">
             <End Role="TBL_DESIGNATION" EntitySet="TBL_DESIGNATION" />
             <End Role="TBL_USERS" EntitySet="TBL_USERS" />
           </AssociationSet>
@@ -330,7 +309,7 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           </Key>
           <Property Name="BRANCH_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BRANCH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TBL_USERS" Relationship="db_exceladModel.FK_TBL_USERS_TBL_BRANCH" FromRole="TBL_BRANCH" ToRole="TBL_USERS" />
+          <NavigationProperty Name="TBL_USERS" Relationship="db_exceladModel.FK_TBL_USERS_TBL_BRANCH1" FromRole="TBL_BRANCH" ToRole="TBL_USERS" />
         </EntityType>
         <EntityType Name="TBL_DESIGNATION">
           <Key>
@@ -338,7 +317,38 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           </Key>
           <Property Name="DESIGNATION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESIGNATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TBL_USERS" Relationship="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION" FromRole="TBL_DESIGNATION" ToRole="TBL_USERS" />
+          <NavigationProperty Name="TBL_USERS" Relationship="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION1" FromRole="TBL_DESIGNATION" ToRole="TBL_USERS" />
+        </EntityType>
+        <Association Name="FK_TBL_SUBJECTS_TBL_COURSE">
+          <End Type="db_exceladModel.TBL_COURSE" Role="TBL_COURSE" Multiplicity="0..1" />
+          <End Type="db_exceladModel.TBL_SUBJECTS" Role="TBL_SUBJECTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_COURSE">
+              <PropertyRef Name="COURSE_ID" />
+            </Principal>
+            <Dependent Role="TBL_SUBJECTS">
+              <PropertyRef Name="COURSE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TBL_USERS">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESIGNATION_ID" Type="Int32" />
+          <Property Name="BRANCH_ID" Type="Int32" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="CONTACT1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_ID" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISACTIVE" Type="Boolean" />
+          <NavigationProperty Name="TBL_ADMISSION" Relationship="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" FromRole="TBL_USERS" ToRole="TBL_ADMISSION" />
+          <NavigationProperty Name="TBL_BRANCH" Relationship="db_exceladModel.FK_TBL_USERS_TBL_BRANCH1" FromRole="TBL_USERS" ToRole="TBL_BRANCH" />
+          <NavigationProperty Name="TBL_DESIGNATION" Relationship="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION1" FromRole="TBL_USERS" ToRole="TBL_DESIGNATION" />
         </EntityType>
         <Association Name="FK_TBL_ADMISSION_TBL_USERS">
           <End Type="db_exceladModel.TBL_USERS" Role="TBL_USERS" Multiplicity="1" />
@@ -352,7 +362,7 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_USERS_TBL_BRANCH">
+        <Association Name="FK_TBL_USERS_TBL_BRANCH1">
           <End Type="db_exceladModel.TBL_BRANCH" Role="TBL_BRANCH" Multiplicity="0..1" />
           <End Type="db_exceladModel.TBL_USERS" Role="TBL_USERS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -364,19 +374,7 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TBL_SUBJECTS_TBL_COURSE">
-          <End Type="db_exceladModel.TBL_COURSE" Role="TBL_COURSE" Multiplicity="0..1" />
-          <End Type="db_exceladModel.TBL_SUBJECTS" Role="TBL_SUBJECTS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_COURSE">
-              <PropertyRef Name="COURSE_ID" />
-            </Principal>
-            <Dependent Role="TBL_SUBJECTS">
-              <PropertyRef Name="COURSE_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TBL_USERS_TBL_DESIGNATION">
+        <Association Name="FK_TBL_USERS_TBL_DESIGNATION1">
           <End Type="db_exceladModel.TBL_DESIGNATION" Role="TBL_DESIGNATION" Multiplicity="0..1" />
           <End Type="db_exceladModel.TBL_USERS" Role="TBL_USERS" Multiplicity="*" />
           <ReferentialConstraint>
@@ -413,23 +411,6 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
                 <ScalarProperty Name="SUBJECT" ColumnName="SUBJECT" />
                 <ScalarProperty Name="OFFLINE_FEES" ColumnName="OFFLINE_FEES" />
                 <ScalarProperty Name="ONLINE_FEES" ColumnName="ONLINE_FEES" />
-                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TBL_USERS">
-            <EntityTypeMapping TypeName="db_exceladModel.TBL_USERS">
-              <MappingFragment StoreEntitySet="TBL_USERS">
-                <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
-                <ScalarProperty Name="DESIGNATION_ID" ColumnName="DESIGNATION_ID" />
-                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
-                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="CONTACT1" ColumnName="CONTACT1" />
-                <ScalarProperty Name="CONTACT2" ColumnName="CONTACT2" />
-                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
-                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
-                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
                 <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -503,6 +484,23 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
               <MappingFragment StoreEntitySet="TBL_DESIGNATION">
                 <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
                 <ScalarProperty Name="DESIGNATION_ID" ColumnName="DESIGNATION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_USERS">
+            <EntityTypeMapping TypeName="db_exceladModel.TBL_USERS">
+              <MappingFragment StoreEntitySet="TBL_USERS">
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+                <ScalarProperty Name="CONTACT2" ColumnName="CONTACT2" />
+                <ScalarProperty Name="CONTACT1" ColumnName="CONTACT1" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
+                <ScalarProperty Name="DESIGNATION_ID" ColumnName="DESIGNATION_ID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
