@@ -66,7 +66,16 @@
       <DependentUpon>db_ExcelAd.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TBL_ADMISSION.cs">
+      <DependentUpon>db_ExcelAd.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_BRANCH.cs">
+      <DependentUpon>db_ExcelAd.tt</DependentUpon>
+    </Compile>
     <Compile Include="TBL_COURSE.cs">
+      <DependentUpon>db_ExcelAd.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBL_DESIGNATION.cs">
       <DependentUpon>db_ExcelAd.tt</DependentUpon>
     </Compile>
     <Compile Include="TBL_ENQUIRY.cs">
