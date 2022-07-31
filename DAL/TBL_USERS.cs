@@ -14,6 +14,12 @@ namespace DAL
     
     public partial class TBL_USERS
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_USERS()
+        {
+            this.TBL_ADMISSION = new HashSet<TBL_ADMISSION>();
+        }
+    
         public int USER_ID { get; set; }
         public string USER_NAME { get; set; }
         public string DESIGNATION { get; set; }
@@ -25,5 +31,12 @@ namespace DAL
         public string ADDRESS { get; set; }
         public string PASSWORD { get; set; }
         public Nullable<bool> ISACTIVE { get; set; }
+        public Nullable<int> DESIGNATION_ID { get; set; }
+        public Nullable<int> BRANCH_ID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_ADMISSION> TBL_ADMISSION { get; set; }
+        public virtual TBL_BRANCH TBL_BRANCH { get; set; }
+        public virtual TBL_DESIGNATION TBL_DESIGNATION { get; set; }
     }
 }

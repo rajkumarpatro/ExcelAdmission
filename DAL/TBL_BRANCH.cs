@@ -12,21 +12,18 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_COURSE
+    public partial class TBL_BRANCH
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_COURSE()
+        public TBL_BRANCH()
         {
-            this.TBL_SUBJECTS = new HashSet<TBL_SUBJECTS>();
+            this.TBL_USERS = new HashSet<TBL_USERS>();
         }
     
-        public int COURSE_ID { get; set; }
-        public string COURSE { get; set; }
-        public Nullable<int> OFFLINE_FEES { get; set; }
-        public Nullable<int> ONLINE_FEES { get; set; }
-        public Nullable<bool> ISACTIVE { get; set; }
+        public int BRANCH_ID { get; set; }
+        public string BRANCH { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_SUBJECTS> TBL_SUBJECTS { get; set; }
+        public virtual ICollection<TBL_USERS> TBL_USERS { get; set; }
     }
 }

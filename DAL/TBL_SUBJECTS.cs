@@ -20,5 +20,7 @@ namespace DAL
         public Nullable<int> OFFLINE_FEES { get; set; }
         public Nullable<int> ONLINE_FEES { get; set; }
         public Nullable<bool> ISACTIVE { get; set; }
+    
+        public virtual TBL_COURSE TBL_COURSE { get; set; }
     }
 }
