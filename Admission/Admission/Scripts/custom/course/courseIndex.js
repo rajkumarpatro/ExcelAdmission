@@ -77,7 +77,7 @@ $(document).ready(function () {
     $(document).on('click', '.editCourse', function () {
         
         $.ajax({
-            url: GetCourseListById + "?courseId=" + $(this).data('id'),
+            url: GetCourse + "?courseId=" + $(this).data('id'),
             type: "GET",
             beforeSend: function () {
                 $.blockUI();

@@ -14,7 +14,7 @@ namespace BusinessLogic
         {
             return Mapping.Mapper.Map<List<TBL_COURSE>, List<CourseModel>>(db.TBL_COURSE.ToList());
         }
-        public async Task<CourseModel> GetCourseList(int courseId)
+        public async Task<CourseModel> GetCourse(int courseId)
         {
             return Mapping.Mapper.Map<TBL_COURSE, CourseModel>(db.TBL_COURSE.FirstOrDefault(x=> x.COURSE_ID == courseId));
         }
