@@ -26,10 +26,20 @@ namespace Admission.Controllers
             return View("UsersList");
         }
 
-        public async Task<ActionResult> AddUser()
+        public async Task<ActionResult> AddUser(int? userId = null)
         {
-            UsersModel model = new UsersModel();
-            model.DOB = DateTime.Now;
+            UsersModel model;
+
+            if (userId != null)
+            {
+                model = await _userBL.GetUser(userId.Value);
+            }
+            else
+            {
+                model = new UsersModel();
+                model.DOB = DateTime.Now;
+            }
+
             var branch = await _branchBL.GetBranchList();
             model.BranchDD = branch.Select(x => new SelectListItem { Text = x.BRANCH, Value = x.BRANCH_ID.ToString() }).ToList();
             var designation = await _designationBL.GetDesignationList();

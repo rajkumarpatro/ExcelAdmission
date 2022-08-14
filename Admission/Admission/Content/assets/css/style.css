@@ -32950,3 +32950,9 @@ new-task label input[type=checkbox] {
 .table td {
     white-space: normal !important
 }
+.table thead tr {
+    height: 10px !important
+}
+.table.dataTable[class*="table-"] thead th {
+    padding: 5px !important
+}

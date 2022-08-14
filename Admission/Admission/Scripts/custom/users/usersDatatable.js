@@ -14,10 +14,10 @@ var userTable = function () {
                 }
             },
             "columns": [
-                { "title": "USER_NAME", "data": "USER_NAME" },
-                { "title": "EMAIL_ID", "data": "EMAIL_ID" },
-                { "title": "DESIGNATION_ID", "data": "DESIGNATION_ID" },
-                { "title": "BRANCH_ID", "data": "BRANCH_ID" },
+                { "title": "Name", "data": "USER_NAME" },
+                { "title": "Email", "data": "EMAIL_ID" },
+                { "title": "DESIGNATION", "data": "DESIGNATION_ID" },
+                { "title": "BRANCH", "data": "BRANCH_ID" },
                 { "title": "GENDER", "data": "GENDER" },
                 {
                     "title": "DOB", "data": "DOB",
@@ -28,7 +28,7 @@ var userTable = function () {
                     }
                 },
                 { "title": "FATHER_NAME", "data": "FATHER_NAME" },
-                { "title": "CONTACT1", "data": "CONTACT1" },
+                { "title": "CONTACT", "data": "CONTACT1" },
                 {
                     "title": "ADDRESS", "data": "ADDRESS", "className": "width-10",
                     fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
@@ -44,7 +44,7 @@ var userTable = function () {
                 {
                     "title": "EDIT", "data": "ISACTIVE",
                     fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
-                        $(nTd).html("<i data-id=" + oData.COURSE_ID + " class='feather icon-trash-2 deleteCourse'></i> <i data-id=" + oData.COURSE_ID + " class='feather icon-edit editCourse'></i>");
+                        $(nTd).html("<i style='color: blue; cursor: pointer' data-id=" + oData.USER_ID + " class='feather icon-trash-2 deleteUser'></i> | <i style='cursor: pointer;color: blue;' data-id=" + oData.USER_ID + " class='feather icon-edit editUser'></i>");
                     }
                 }
             ]

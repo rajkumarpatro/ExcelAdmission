@@ -31,6 +31,7 @@ $(document).ready(function () {
             }
         }
     });
+
     $.validator.addMethod(
         "validatePhone",
         function (value, element) {
@@ -68,45 +69,5 @@ $(document).ready(function () {
         });
     });
 
-    //save User
-    $(document).on('click', '#btnSaveUser', function () {
-        var isvalid = $("#frmCourse").valid();
-
-        
-
-        if (isvalid) {
-            
-            var frmdata = new FormData(document.querySelector('#frmCourse'));
-            frmdata.set('GENDER', $('#GENDER').prop('checked'));
-            frmdata.set('ISACTIVE', $('#ISACTIVE').prop('checked'));
-
-            $.ajax({
-                url: AddUser,
-                type: 'POST',
-                data: frmdata,
-                contentType: false,
-                processData: false,
-                beforeSend: function () {
-                    $.blockUI();
-                },
-                success: function (res) {
-                    debugger;
-                    if (res === 'False')
-                        notify("", "Something went wrong", "danger");
-                    else {
-                        notify("", "Data Add / Edited Successfully", "success");
-                    }
-                    $.unblockUI();
-                },
-                error: function (err) {
-                    $.unblockUI();
-                    notify("", "Something went wrong", "danger");
-
-                },
-                complete: function () {
-                    $.unblockUI();
-                }
-            })
-        }
-    });
+   
 });
