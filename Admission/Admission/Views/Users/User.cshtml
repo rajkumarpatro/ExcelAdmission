@@ -1,0 +1,110 @@
+﻿@model DataModel.UsersModel
+<!-- toggle -->
+
+
+<script src="~/Scripts/custom/users/users.js"></script>
+
+<div class="card">
+    <div class="card-body">
+        <form id="frmCourse">
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+                </div>
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">User profile</h4>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Name</label>
+                                @Html.TextBoxFor(m => m.USER_NAME, new { @placeholder = "Name", @class = "form-control", @required = "required" })
+                                <label style="display: " id="USER_NAME-error" class="error jquery-validation-error small form-text invalid-feedback" for="USER_NAME">This field is required.</label>
+
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">Password</label>
+                                @Html.TextBoxFor(m => m.PASSWORD, new {@type="password", @placeholder = "PASSWORD", @class = "form-control", @required = "required" })
+                                <label style="display: " id="PASSWORD-error" class="error jquery-validation-error small form-text invalid-feedback" for="PASSWORD">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Father's Name</label>
+                                @Html.TextBoxFor(m => m.FATHER_NAME, new { @placeholder = "Name", @class = "form-control", @required = "required" })
+                                <label style="display: " id="FATHER_NAME-error" class="error jquery-validation-error small form-text invalid-feedback" for="FATHER_NAME">This field is required.</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">Gender</label><br />
+                                <input class="chktoggle" @(Model.GENDER ?? true ? "checked" : "") type="checkbox" id="GENDER"
+                                       name="GENDER" data-size="sm" data-toggle="toggle" data-on="Male" data-off="Female"
+                                       data-onstyle="outline-success" data-offstyle="outline-primary">
+
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">DOB</label>
+                                @Html.TextBoxFor(m => m.DOB, Model.DOB.Value.ToString("dd/MM/YYYY"), new { @class = "form-control" })
+                                <label style="display: " id="DOB-error" class="error jquery-validation-error small form-text invalid-feedback" for="DOB">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <label class="labels">Contact 1</label>
+                                @Html.TextBoxFor(m => m.CONTACT1, new {@maxlength="10", @placeholder = "CONTACT1", @class = "form-control", @required = "required" })
+                                <label style="display: " id="CONTACT1-error" class="error jquery-validation-error small form-text invalid-feedback" for="CONTACT1">This field is required.</label>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="labels">Contact 2</label>
+                                @Html.TextBoxFor(m => m.CONTACT2, new { @maxlength = "10", @placeholder = "CONTACT2", @class = "form-control", @required = "required" })
+                                <label style="display: " id="CONTACT2-error" class="error jquery-validation-error small form-text invalid-feedback" for="CONTACT2">This field is required.</label>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="labels">Email</label>
+                                @Html.TextBoxFor(m => m.EMAIL_ID, new {@type="email", @placeholder = "EMAIL_ID", @class = "form-control", @required = "required" })
+                                <label style="display: " id="EMAIL_ID-error" class="error jquery-validation-error small form-text invalid-feedback" for="EMAIL_ID">This field is required.</label>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="labels">Address</label>
+                                @Html.TextAreaFor(m => m.ADDRESS, new { @placeholder = "ADDRESS", @class = "form-control", @required = "required", @rows = 5 })
+                                <label style="display: " id="ADDRESS-error" class="error jquery-validation-error small form-text invalid-feedback" for="ADDRESS">This field is required.</label>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-primary profile-button" id="btnSaveUser" type="button">Save Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center experience">
+                            <span>Edit Experience</span>
+                            <span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span>
+                        </div><br>
+                        <div class="col-md-12">
+                            <label class="labels" style="width: 140px">Branch</label>
+                            @Html.DropDownListFor(m => m.BRANCH_ID, Model.BranchDD, "Select Branch", new { @class = "frmselect col-md-5" })
+                            @Html.HiddenFor(m => m.BRANCH_ID)
+                            <label style="display: " id="BRANCH_ID-error" class="error jquery-validation-error small form-text invalid-feedback" for="BRANCH_ID">This field is required.</label>
+                        </div> <br>
+                        <div class="col-md-12">
+                            <label class="labels" style="width: 140px">Designation</label>
+                            @Html.DropDownListFor(m => m.DESIGNATION_ID, Model.DesignationDD, "Select Designation", new { @class = "frmselect col-md-5" })
+                            @Html.HiddenFor(m => m.DESIGNATION_ID)
+                            <label style="display: " id="DESIGNATION_ID-error" class="error jquery-validation-error small form-text invalid-feedback" for="DESIGNATION_ID">This field is required.</label>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            @*<label class="labels">Activate</label>*@
+                            <input class="chktoggle" @(Model.ISACTIVE ?? true ? "checked" : "") type="checkbox" id="ISACTIVE"
+                                   name="ISACTIVE" data-size="sm" data-toggle="toggle" data-on="Active" data-off="Inactive"
+                                   data-onstyle="outline-success" data-offstyle="outline-danger">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

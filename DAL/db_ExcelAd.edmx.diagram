@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="db_exceladModel.TBL_BRANCH" Width="1.5" PointX="0.75" PointY="9.875" />
         <EntityTypeShape EntityType="db_exceladModel.TBL_DESIGNATION" Width="1.5" PointX="0.75" PointY="12.125" />
         <AssociationConnector Association="db_exceladModel.FK_TBL_SUBJECTS_TBL_COURSE" />
-        <EntityTypeShape EntityType="db_exceladModel.TBL_USERS" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="db_exceladModel.TBL_USERS" Width="1.5" PointX="3" PointY="9.75" />
         <AssociationConnector Association="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" />
         <AssociationConnector Association="db_exceladModel.FK_TBL_USERS_TBL_BRANCH1" />
         <AssociationConnector Association="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION1" />

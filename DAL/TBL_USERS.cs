@@ -24,7 +24,9 @@ namespace DAL
         public string USER_NAME { get; set; }
         public Nullable<int> DESIGNATION_ID { get; set; }
         public Nullable<int> BRANCH_ID { get; set; }
+        public Nullable<bool> GENDER { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
+        public string FATHER_NAME { get; set; }
         public string CONTACT1 { get; set; }
         public string CONTACT2 { get; set; }
         public string EMAIL_ID { get; set; }
