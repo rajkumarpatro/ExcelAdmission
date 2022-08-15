@@ -113,6 +113,7 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           <Property Name="ADDRESS" Type="varchar" MaxLength="200" />
           <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
           <Property Name="ISACTIVE" Type="bit" />
+          <Property Name="PHOTO" Type="varchar" MaxLength="150" />
         </EntityType>
         <Association Name="FK_TBL_ADMISSION_TBL_USERS">
           <End Role="TBL_USERS" Type="Self.TBL_USERS" Multiplicity="1" />
@@ -350,6 +351,7 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ISACTIVE" Type="Boolean" />
+          <Property Name="PHOTO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBL_ADMISSION" Relationship="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" FromRole="TBL_USERS" ToRole="TBL_ADMISSION" />
           <NavigationProperty Name="TBL_BRANCH" Relationship="db_exceladModel.FK_TBL_USERS_TBL_BRANCH1" FromRole="TBL_USERS" ToRole="TBL_BRANCH" />
           <NavigationProperty Name="TBL_DESIGNATION" Relationship="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION1" FromRole="TBL_USERS" ToRole="TBL_DESIGNATION" />
@@ -494,6 +496,7 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           <EntitySetMapping Name="TBL_USERS">
             <EntityTypeMapping TypeName="db_exceladModel.TBL_USERS">
               <MappingFragment StoreEntitySet="TBL_USERS">
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
                 <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
                 <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
                 <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />

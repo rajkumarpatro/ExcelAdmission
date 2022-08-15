@@ -136,9 +136,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FileHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Common\profile.jpg" />
     <Content Include="Content\assets\css\images\loading.html" />
     <Content Include="Content\assets\css\layout-dark.css" />
     <Content Include="Content\assets\css\layout-rtl.css" />

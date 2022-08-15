@@ -22,7 +22,7 @@ namespace DataModel
         public string ADDRESS { get; set; }
         public string PASSWORD { get; set; }
         public bool? ISACTIVE { get; set; }
-
+        public string PHOTO { get; set; }
         public List<SelectListItem> BranchDD { get; set; }
         public List<SelectListItem> DesignationDD { get; set; }
     }

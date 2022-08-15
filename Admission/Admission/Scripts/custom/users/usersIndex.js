@@ -71,6 +71,11 @@ $(document).ready(function () {
             frmdata.set('GENDER', $('#GENDER').prop('checked'));
             frmdata.set('ISACTIVE', $('#ISACTIVE').prop('checked'));
 
+            var fileUpload = $("#fileupload").get(0);
+            var files = fileUpload.files;
+            if (files.length > 0)
+                frmdata.append(files[0].name, files[0]);
+
             $.ajax({
                 url: AddUser,
                 type: 'POST',
@@ -105,5 +110,33 @@ $(document).ready(function () {
                 }
             })
         }
+    });
+
+    //profile img click
+    $(document).on('click', '#profileimg', function () {
+        $("#fileupload").trigger('click');
+    });
+
+    $(document).on('change', '#fileupload', function () {
+        
+        var selectedFile = $(this).get(0).files[0];
+        var reader = new FileReader();
+
+        var imgtag = document.getElementById("profileimg");
+        imgtag.title = selectedFile.name;
+
+        reader.onload = function (event) {
+            imgtag.src = event.target.result;
+        };
+
+        reader.readAsDataURL(selectedFile);
+    });
+
+    $(document).on('keyup', '#EMAIL_ID', function () {
+        $('#spanemail').text($(this).val());
+    });
+
+    $(document).on('keyup', '#USER_NAME', function () {
+        $('#spanname').text($(this).val());
     });
 });

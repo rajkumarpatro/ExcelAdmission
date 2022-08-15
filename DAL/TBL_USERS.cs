@@ -33,6 +33,7 @@ namespace DAL
         public string ADDRESS { get; set; }
         public string PASSWORD { get; set; }
         public Nullable<bool> ISACTIVE { get; set; }
+        public string PHOTO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_ADMISSION> TBL_ADMISSION { get; set; }

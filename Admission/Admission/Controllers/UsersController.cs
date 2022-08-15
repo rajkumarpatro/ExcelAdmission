@@ -1,4 +1,5 @@
-﻿using BusinessLogic;
+﻿using Admission.Helpers;
+using BusinessLogic;
 using DataModel;
 using System;
 using System.Collections.Generic;
@@ -47,10 +48,32 @@ namespace Admission.Controllers
 
             return PartialView("User", model);
         }
+
         [HttpPost]
-        public async Task<bool> AddUser(UsersModel UsersModel)
+        public async Task<bool> AddUser(UsersModel usersModel)
         {
-            return await _userBL.AddUsers(UsersModel);
+            if (usersModel.USER_ID > 0)
+            {
+                var exitingUser = await _userBL.GetUser(usersModel.USER_ID);
+
+                if (Request.Files.Count > 0 && !(exitingUser.PHOTO??"").Equals(Request.Files[0].FileName))
+                {
+                    usersModel.PHOTO = FileHandler.SaveUploadedFile(Request, "profile");
+                    string fullPath = Request.MapPath(exitingUser.PHOTO);
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+                }
+            }
+            else
+            {
+                //save photo for new profile
+                if (Request.Files.Count > 0)
+                    usersModel.PHOTO = FileHandler.SaveUploadedFile(Request, "profile");
+            }
+            
+            return await _userBL.AddUsers(usersModel);
         }
 
         public async Task<JsonResult> GetUserList()
