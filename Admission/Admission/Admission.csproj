@@ -130,15 +130,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FileHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Common\profile.jpg" />
     <Content Include="Content\assets\css\images\loading.html" />
     <Content Include="Content\assets\css\layout-dark.css" />
     <Content Include="Content\assets\css\layout-rtl.css" />
@@ -458,8 +461,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\commonlib\bootstrap.js" />
+    <Content Include="Scripts\commonlib\bootstrap.min.js" />
     <Content Include="Content\assets\fonts\cryptocoins.ttf" />
     <Content Include="Content\assets\fonts\cryptocoins.woff" />
     <Content Include="Content\assets\fonts\fa-brands-400.eot" />
@@ -482,23 +485,27 @@
     <Content Include="Content\assets\fonts\pct.woff" />
     <Content Include="Content\assets\fonts\pctd41d.eot" />
     <Content Include="Scripts\BootstrapToggle\bootstrap4-toggle.min.js.map" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <None Include="Scripts\commonlib\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\BootstrapToggle\bootstrap4-toggle.min.css" />
     <Content Include="Scripts\BootstrapToggle\bootstrap4-toggle.min.js" />
+    <Content Include="Scripts\custom\gbl.js" />
+    <Content Include="Scripts\custom\users\usersDatatable.js" />
+    <Content Include="Scripts\custom\users\users.js" />
+    <Content Include="Scripts\custom\users\usersIndex.js" />
     <Content Include="Scripts\custom\subject\subjectDatatable.js" />
     <Content Include="Scripts\custom\subject\subjectIndex.js" />
     <Content Include="Scripts\custom\course\courseDatatable.js" />
     <Content Include="Scripts\custom\course\courseIndex.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\commonlib\jquery-3.4.1.js" />
+    <Content Include="Scripts\commonlib\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\commonlib\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\commonlib\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\commonlib\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\commonlib\jquery.validate.js" />
+    <Content Include="Scripts\commonlib\jquery.validate.min.js" />
+    <Content Include="Scripts\commonlib\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\commonlib\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\commonlib\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -507,11 +514,13 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Course\Course.cshtml" />
+    <Content Include="Views\Users\User.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Users\UsersList.cshtml" />
     <Content Include="Views\Subject\Subject.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -528,8 +537,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\commonlib\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\commonlib\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\BusinessLogic\BusinessLogic.csproj">

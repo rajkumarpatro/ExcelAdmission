@@ -32928,3 +32928,31 @@ new-task label input[type=checkbox] {
 }
 
 /**====== user card css end ======**/
+
+/*custom*/
+.width-10 {
+    width: 10%
+}
+
+.width-20 {
+    width: 20%
+}
+.width-30 {
+    width: 30%
+}
+
+.dt-longtext {
+    word-break: break-word;
+    display: block;
+    width: 200px;
+}
+
+.table td {
+    white-space: normal !important
+}
+.table thead tr {
+    height: 10px !important
+}
+.table.dataTable[class*="table-"] thead th {
+    padding: 5px !important
+}

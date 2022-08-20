@@ -24,13 +24,16 @@ namespace DAL
         public string USER_NAME { get; set; }
         public Nullable<int> DESIGNATION_ID { get; set; }
         public Nullable<int> BRANCH_ID { get; set; }
+        public Nullable<bool> GENDER { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
+        public string FATHER_NAME { get; set; }
         public string CONTACT1 { get; set; }
         public string CONTACT2 { get; set; }
         public string EMAIL_ID { get; set; }
         public string ADDRESS { get; set; }
         public string PASSWORD { get; set; }
         public Nullable<bool> ISACTIVE { get; set; }
+        public string PHOTO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_ADMISSION> TBL_ADMISSION { get; set; }

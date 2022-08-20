@@ -104,13 +104,16 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           <Property Name="USER_NAME" Type="varchar" MaxLength="50" />
           <Property Name="DESIGNATION_ID" Type="int" />
           <Property Name="BRANCH_ID" Type="int" />
+          <Property Name="GENDER" Type="bit" />
           <Property Name="DOB" Type="datetime" />
+          <Property Name="FATHER_NAME" Type="varchar" MaxLength="200" />
           <Property Name="CONTACT1" Type="varchar" MaxLength="10" />
           <Property Name="CONTACT2" Type="varchar" MaxLength="10" />
           <Property Name="EMAIL_ID" Type="varchar" MaxLength="60" />
           <Property Name="ADDRESS" Type="varchar" MaxLength="200" />
           <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
           <Property Name="ISACTIVE" Type="bit" />
+          <Property Name="PHOTO" Type="varchar" MaxLength="150" />
         </EntityType>
         <Association Name="FK_TBL_ADMISSION_TBL_USERS">
           <End Role="TBL_USERS" Type="Self.TBL_USERS" Multiplicity="1" />
@@ -260,7 +263,7 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
             <End Role="TBL_DESIGNATION" EntitySet="TBL_DESIGNATION" />
             <End Role="TBL_USERS" EntitySet="TBL_USERS" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="TBL_ADMISSION">
           <Key>
             <PropertyRef Name="A_ID" />
@@ -339,13 +342,16 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DESIGNATION_ID" Type="Int32" />
           <Property Name="BRANCH_ID" Type="Int32" />
+          <Property Name="GENDER" Type="Boolean" />
           <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="FATHER_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="CONTACT1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="CONTACT2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="EMAIL_ID" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ISACTIVE" Type="Boolean" />
+          <Property Name="PHOTO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBL_ADMISSION" Relationship="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" FromRole="TBL_USERS" ToRole="TBL_ADMISSION" />
           <NavigationProperty Name="TBL_BRANCH" Relationship="db_exceladModel.FK_TBL_USERS_TBL_BRANCH1" FromRole="TBL_USERS" ToRole="TBL_BRANCH" />
           <NavigationProperty Name="TBL_DESIGNATION" Relationship="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION1" FromRole="TBL_USERS" ToRole="TBL_DESIGNATION" />
@@ -386,7 +392,7 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -490,13 +496,16 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           <EntitySetMapping Name="TBL_USERS">
             <EntityTypeMapping TypeName="db_exceladModel.TBL_USERS">
               <MappingFragment StoreEntitySet="TBL_USERS">
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
                 <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
                 <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
                 <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
                 <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
                 <ScalarProperty Name="CONTACT2" ColumnName="CONTACT2" />
                 <ScalarProperty Name="CONTACT1" ColumnName="CONTACT1" />
+                <ScalarProperty Name="FATHER_NAME" ColumnName="FATHER_NAME" />
                 <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
                 <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
                 <ScalarProperty Name="DESIGNATION_ID" ColumnName="DESIGNATION_ID" />
                 <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />

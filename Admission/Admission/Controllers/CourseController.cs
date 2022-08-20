@@ -31,9 +31,9 @@ namespace Admission.Controllers
         public async Task<JsonResult> GetCourseList() { 
             return Json(new { data = await _courseBL.GetCourseList() }, JsonRequestBehavior.AllowGet);
         }
-        public async Task<JsonResult> GetCourseListById(int courseId)
+        public async Task<JsonResult> GetCourse(int courseId)
         {
-            return Json(await _courseBL.GetCourseList(courseId), JsonRequestBehavior.AllowGet);
+            return Json(await _courseBL.GetCourse(courseId), JsonRequestBehavior.AllowGet);
         }
 
         public async Task<bool> DeleteCourse(int courseId)
