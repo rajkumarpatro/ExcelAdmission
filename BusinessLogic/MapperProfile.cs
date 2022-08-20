@@ -30,6 +30,7 @@ namespace BusinessLogic
         public MappingProfile()
         {
             CreateMap<TBL_COURSE, CourseModel>().ReverseMap();
+            CreateMap<TBL_SUBJECTS, SubjectModel>().ReverseMap();
         }
     }
 }

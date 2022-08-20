@@ -132,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -484,6 +485,8 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\BootstrapToggle\bootstrap4-toggle.min.css" />
     <Content Include="Scripts\BootstrapToggle\bootstrap4-toggle.min.js" />
+    <Content Include="Scripts\custom\subject\subjectDatatable.js" />
+    <Content Include="Scripts\custom\subject\subjectIndex.js" />
     <Content Include="Scripts\custom\course\courseDatatable.js" />
     <Content Include="Scripts\custom\course\courseIndex.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -509,6 +512,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Course\Course.cshtml" />
+    <Content Include="Views\Subject\Subject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
