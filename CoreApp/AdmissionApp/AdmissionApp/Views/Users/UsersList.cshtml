@@ -1,0 +1,38 @@
+﻿<style>
+    
+</style>
+<!-- datepicker -->
+<link href="~/Content/assets/css/plugins/daterangepicker.css" rel="stylesheet" />
+<script src="~/Content/assets/js/plugins/moment.min.js"></script>
+<script src="~/Content/assets/js/plugins/daterangepicker.js"></script>
+
+
+<link href="~/Scripts/BootstrapToggle/bootstrap4-toggle.min.css" rel="stylesheet" />
+<script src="~/Scripts/BootstrapToggle/bootstrap4-toggle.min.js"></script>
+
+<script src="~/Scripts/custom/users/usersIndex.js"></script>
+<script src="~/Scripts/custom/users/usersDatatable.js"></script>
+
+<div class="col-sm-12" id="divcontainer">
+    <div class="card" id="divUserList">
+        <div class="card-header">
+            <h5>Users</h5>
+        </div>
+        <div class="card-body">
+            <button class="btn btn-outline-primary btn-sm" id="btnAddUser">Add New User</button>
+            <hr />
+            <table id="userTable" class="table table-bordered">
+            </table>
+        </div>
+    </div>
+
+    <div id="divUserForm" style="display: none"></div>
+</div>
+
+
+<script>
+    var GetUserList = "@Url.Content("~/Users/GetUserList")";
+    var AddUser = "@Url.Content("~/Users/AddUser")";
+    var DeleteUser = "@Url.Content("~/Users/DeleteUser")";
+    var GetCourse = "@Url.Content("~/Users/GetCourse")";
+</script>

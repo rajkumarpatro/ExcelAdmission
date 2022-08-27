@@ -1,0 +1,67 @@
+﻿@model DataModel.SubjectModel
+
+<script src="~/Scripts/custom/subject/subjectindex.js"></script>
+<script src="~/Scripts/custom/subject/subjectDatatable.js"></script>
+
+
+
+<!-- [ Form Validation ] start -->
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Subject Form</h5>
+        </div>
+        <div class="card-body">
+            <form id="frmSubject">
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Select Course</label>
+                            @Html.DropDownListFor(model => model.COURSE_ID, new List<SelectListItem>(Model.COURSE_LIST), "Select Course", new { @class = "form-control", placeholder = "Select Course" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="form-label">Subject Name</label>
+                            @Html.TextBoxFor(m => m.SUBJECT, new { @class = "form-control", @required = "required" })
+                            @Html.HiddenFor(x => x.SUBJECT_ID)
+                            <label style="display: " id="COURSE-error" class="error jquery-validation-error small form-text invalid-feedback" for="SUBJECT">This field is required.</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="form-label">Online fee</label>
+                            @Html.TextBoxFor(m => m.ONLINE_FEES, new { @class = "form-control", @type = "number" })
+
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label class="form-label">Is Active</label>
+                            <input class="chktoggle" type="checkbox" @(Model.ISACTIVE ?? false ? "checked" : "") id="ISACTIVE" name="ISACTIVE"
+                                   data-size="sm" data-toggle="toggle" data-on="YES" data-off="NO"
+                                   data-onstyle="success" data-offstyle="danger">
+                        </div>
+                    </div>
+                    <div class="col-md-2" style=" margin-top: 30px;">
+                        <button type="button" id="btnAdd" class="btn btn-sm btn-outline-primary">Add Subject</button>
+                        <button type="button" id="btnCancel" style="display: none" class="btn btn-sm btn-outline-primary">Cancel update</button>
+                    </div>
+                </div>
+            </form>
+
+            <hr />
+            <table id="subjectTable" class="table table-bordered">
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    var AddSubject = "@Url.Content("~/Subject/AddSubject")";
+    var GetSubjectList = "@Url.Content("~/Subject/GetSubjectList")";
+    var DeleteSubject = "@Url.Content("~/Subject/DeleteSubject")";
+    var GetSubjectListById = "@Url.Content("~/Subject/GetSubjectListById")";
+
+</script>

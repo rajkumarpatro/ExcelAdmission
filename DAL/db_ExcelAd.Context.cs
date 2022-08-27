@@ -15,8 +15,7 @@ namespace DAL
     
     public partial class db_exceladEntities : DbContext
     {
-        public db_exceladEntities()
-            : base("name=db_exceladEntities")
+        public db_exceladEntities() : base("name=db_exceladEntities")
         {
         }
     
