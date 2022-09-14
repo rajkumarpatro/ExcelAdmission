@@ -1,0 +1,37 @@
+﻿<style>
+</style>
+<!-- datepicker -->
+<link href="~/Content/assets/css/plugins/daterangepicker.css" rel="stylesheet" />
+<script src="~/Content/assets/js/plugins/moment.min.js"></script>
+<script src="~/Content/assets/js/plugins/daterangepicker.js"></script>
+
+
+<link href="~/Scripts/BootstrapToggle/bootstrap4-toggle.min.css" rel="stylesheet" />
+<script src="~/Scripts/BootstrapToggle/bootstrap4-toggle.min.js"></script>
+
+<script src="~/Scripts/custom/admission/admissionIndex.js"></script>
+<script src="~/Scripts/custom/admission/admissionDatatable.js"></script>
+
+<div class="col-sm-12" id="divcontainer">
+    <div class="card" id="divAdmissionList">
+        <div class="card-header">
+            <h5>Admission</h5>
+        </div>
+        <div class="card-body">
+            <button class="btn btn-outline-primary btn-sm" id="btnAddAdmission">Add New Admission</button>
+            <hr />
+            <table id="admissionTable" class="table table-bordered">
+            </table>
+        </div>
+    </div>
+
+    <div id="divAdmissionForm" style="display: none"></div>
+</div>
+
+
+<script>
+    var GetAdmissionList = "@Url.Content("~/Admission/GetAdmissionList")";
+    var AddAdmission = "@Url.Content("~/Admission/AddAdmission")";
+    var DeleteAdmission = "@Url.Content("~/Admission/DeleteAdmission")";
+    var GetCourse = "@Url.Content("~/Admission/GetCourse")";
+</script>

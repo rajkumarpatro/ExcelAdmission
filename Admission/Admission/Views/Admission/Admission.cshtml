@@ -1,0 +1,260 @@
+﻿@model DataModel.AdmissionModel
+<style>
+    .form-control {
+        padding: 0
+    }
+</style>
+
+
+<script src="~/Scripts/custom/admission/admission.js"></script>
+
+<div class="card">
+    <div class="card-body">
+        <form id="frmAdmission">
+            @Html.HiddenFor(m => m.A_ID)
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                        <div>
+                            @{
+                                var profilePic = Model.PHOTO ?? "/Common/profile.jpg";
+                            }
+                            <img id="profileimg" class="mt-5" width="150px" src="@profilePic" />
+                        </div>
+                        <span id="spanname" class="font-weight-bold">
+                            @(Model.A_ID == 0 ? "Your name" : Model.STUDENT_NAME)
+                        </span>
+                        <span id="spanemail" class="text-black-50">
+                            @(Model.A_ID == 0 ? "your@mail.com.my" : Model.STUDENT_EMAIL)
+                        </span>
+                        <span> </span>
+                        <input id="fileupload" style="display: none" type="file" />
+                    </div>
+                </div>
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">ADMISSION</h4>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Name</label>
+                                @Html.TextBoxFor(m => m.STUDENT_NAME, new { @placeholder = "Name", @class = "form-control", @required = "required" })
+                                <label style="display: " id="STUDENT_NAME-error" class="error jquery-validation-error small form-text invalid-feedback" for="STUDENT_NAME">This field is required.</label>
+
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">DOB</label>
+                                @Html.TextBoxFor(m => m.DOB, Model.DOB.Value.ToString("dd/MM/YYYY"), new { @class = "form-control" })
+                                <label style="display: " id="DOB-error" class="error jquery-validation-error small form-text invalid-feedback" for="DOB">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Father's Name</label>
+                                @Html.TextBoxFor(m => m.FATHER, new { @placeholder = "FATHER NAME", @class = "form-control", @required = "required" })
+                                <label style="display: " id="FATHER-error" class="error jquery-validation-error small form-text invalid-feedback" for="FATHER">This field is required.</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">Father's Occupation</label>
+                                @Html.TextBoxFor(m => m.FATHER_OCCUPATION, new { @placeholder = "FATHER OCCUPATION", @class = "form-control" })
+                                <label style="display: " id="FATHER_OCCUPATION-error" class="error jquery-validation-error small form-text invalid-feedback" for="FATHER_OCCUPATION">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label class="labels">Mother's Name</label>
+                                @Html.TextBoxFor(m => m.MOTHER, new { @placeholder = "MOTHER NAME", @class = "form-control", @required = "required" })
+                                <label style="display: " id="MOTHER-error" class="error jquery-validation-error small form-text invalid-feedback" for="MOTHER">This field is required.</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">Mother's Occupation</label>
+                                @Html.TextBoxFor(m => m.MOTHER_OCCUPATION, new { @placeholder = "MOTHER OCCUPATION", @class = "form-control" })
+                                <label style="display: " id="MOTHER_OCCUPATION-error" class="error jquery-validation-error small form-text invalid-feedback" for="MOTHER_OCCUPATION">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <label class="labels">CONTACT</label>
+                                @Html.TextBoxFor(m => m.STUDENT_CONTACT, new { @maxlength = "10", @placeholder = "STUDENT CONTACT", @class = "form-control", @required = "required" })
+                                <label style="display: " id="STUDENT_CONTACT-error" class="error jquery-validation-error small form-text invalid-feedback" for="STUDENT_CONTACT">This field is required.</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels mb-4"></label>
+                                @Html.TextBoxFor(m => m.PARENT_CONTACT, new { @maxlength = "10", @placeholder = "PARENT CONTACT", @class = "form-control", @required = "required" })
+                                <label style="display: " id="PARENT_CONTACT-error" class="error jquery-validation-error small form-text invalid-feedback" for="PARENT_CONTACT">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <label class="labels">TELEGRAM</label>
+                                @Html.TextBoxFor(m => m.STUDENT_TELEGRAM, new { @placeholder = "STUDENT TELEGRAM", @class = "form-control" })
+                                <label style="display: " id="STUDENT_TELEGRAM-error" class="error jquery-validation-error small form-text invalid-feedback" for="STUDENT_TELEGRAM">This field is required.</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels mb-4"></label>
+                                @Html.TextBoxFor(m => m.PARENT_TELEGRAM, new { @placeholder = "PARENT TELEGRAM", @class = "form-control" })
+                                <label style="display: " id="PARENT_TELEGRAM-error" class="error jquery-validation-error small form-text invalid-feedback" for="PARENT_TELEGRAM">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <label class="labels">EMAIL</label>
+                                @Html.TextBoxFor(m => m.STUDENT_EMAIL, new { @type = "email", @placeholder = "STUDENT EMAIL", @class = "form-control", @required = "required" })
+                                <label style="display: " id="STUDENT_EMAIL-error" class="error jquery-validation-error small form-text invalid-feedback" for="STUDENT_EMAIL">This field is required.</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels mb-4"></label>
+                                @Html.TextBoxFor(m => m.PARENT_EMAIL, new { @type = "email", @placeholder = "PARENT EMAIL", @class = "form-control" })
+                                <label style="display: " id="PARENT_EMAIL-error" class="error jquery-validation-error small form-text invalid-feedback" for="PARENT_EMAIL">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <label class="labels">APPREARING FOR</label>
+                                @Html.TextBoxFor(m => m.APPEARING_FOR, new { @placeholder = "APPEARING FOR", @class = "form-control", @required = "required" })
+                                <label style="display: " id="APPEARING_FOR-error" class="error jquery-validation-error small form-text invalid-feedback" for="APPEARING_FOR">This field is required.</label>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">APPEARING YEAR</label>
+                                @Html.TextBoxFor(m => m.APPEARING_YEAR, new { @maxlength = "4", @placeholder = "APPEARING YEAR", @class = "form-control", @required = "required" })
+                                <label style="display: " id="APPEARING_FOR-error" class="error jquery-validation-error small form-text invalid-feedback" for="APPEARING_YEAR">This field is required.</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <label class="labels">MARKS</label>
+                                @Html.TextBoxFor(m => m.MARKS_10TH, new { @maxlength = "2", @placeholder = "MARKS 10TH", @class = "form-control", @required = "required" })
+                                <label style="display: " id="MARKS_10TH-error" class="error jquery-validation-error small form-text invalid-feedback" for="MARKS_10TH">This field is required.</label>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.MARKS_11TH, new { @maxlength = "2", @style = "margin-top: 29px;", @placeholder = "MARKS 11TH", @class = "form-control", @required = "required" })
+                                <label style="display: " id="MARKS_11TH-error" class="error jquery-validation-error small form-text invalid-feedback" for="MARKS_11TH">This field is required.</label>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.MARKS_12TH, new { @maxlength = "2", @style = "margin-top: 29px;", @placeholder = "MARKS 10TH", @class = "form-control", @required = "required" })
+                                <label style="display: " id="MARKS_12TH-error" class="error jquery-validation-error small form-text invalid-feedback" for="MARKS_12TH">This field is required.</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-12 form-group">
+                                <label style="padding: 0; margin-right: 15px;" class="labels col-md-6">MEDIUM</label>
+                                <input style="margin-left: 20px" class="chktoggle " @(Model.MEDIUM ?? true ? "checked" : "") type="checkbox" id="MEDIUM"
+                                       name="MEDIUM" data-size="sm" data-toggle="toggle" data-on="English" data-off="Hindi"
+                                       data-onstyle="outline-success" data-offstyle="outline-primary">
+
+                            </div>
+                            <div class="col-md-12">
+                                <label class="labels">SCHOOL/COLLEGE</label>
+                                @Html.TextBoxFor(m => m.SCHOOL_COLLLEGE, new { @placeholder = "SCHOOL/COLLLEGE", @class = "form-control", @required = "required" })
+                                <label style="display: " id="SCHOOL_COLLLEGE-error" class="error jquery-validation-error small form-text invalid-feedback" for="SCHOOL_COLLLEGE">This field is required.</label>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="labels">You came to know about us through</label>
+                                <div class="form-group reference">
+                                    <div class="col-md-12" style=" display: inline-flex;">
+                                        <div class="col-md-3">
+                                            <input type="checkbox" @(Model.CAME_THROUGH_ID == 1 ? "checked":"") data-val="1" class="form-check-input" id="hoarding">
+                                            <label class="form-check-label" for="hoarding">Hoarding</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" @(Model.CAME_THROUGH_ID == 2 ? "checked":"") data-val="2" class="form-check-input" id="tvads">
+                                            <label class="form-check-label" for="tvads">T.V. Adv.</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox"  @(Model.CAME_THROUGH_ID == 3 ? "checked":"") data-val="3" class="form-check-input" id="newspaper">
+                                            <label class="form-check-label" for="newspaper">News Paper</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox"  @(Model.CAME_THROUGH_ID == 4 ? "checked":"") data-val="4" class="form-check-input" id="seminar">
+                                            <label class="form-check-label" for="seminar">Seminar</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" style=" display: inline-flex;">
+                                        <div class="col-md-3">
+                                            <input type="checkbox"  @(Model.CAME_THROUGH_ID == 5 ? "checked":"")  data-val="5" class="form-check-input" id="fmradio">
+                                            <label class="form-check-label" for="fmradio">FM Radio</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox"  @(Model.CAME_THROUGH_ID == 6 ? "checked":"") data-val="6" class="form-check-input" id="fb">
+                                            <label class="form-check-label" for="fb">FB</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" @(Model.CAME_THROUGH_ID == 7 ? "checked":"")  data-val="7" class="form-check-input" id="youtube">
+                                            <label class="form-check-label" for="youtube">Youtube</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" @(Model.CAME_THROUGH_ID == 8 ? "checked":"")  data-val="8" class="form-check-input" id="instagram">
+                                            <label class="form-check-label" for="instagram">Instagram</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12" style=" display: inline-flex;">
+                                        <div class="col-md-3">
+                                            <input type="checkbox"  @(Model.CAME_THROUGH_ID == 9 ? "checked":"") data-val="9" class="form-check-input" id="website">
+                                            <label class="form-check-label" for="website">Website</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" @(Model.CAME_THROUGH_ID == 10 ? "checked":"")  data-val="10" class="form-check-input" id="reference">
+                                            <label class="form-check-label" for="reference">Reference</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3">
+
+                                <label class="labels">DOJ</label>
+                                @Html.TextBoxFor(m => m.DATE_OF_JOINING, Model.DATE_OF_JOINING.Value.ToString("dd/MM/YYYY"), new { @class = "form-control" })
+                                <label style="display: " id="DATE_OF_JOINING-error" class="error jquery-validation-error small form-text invalid-feedback" for="DATE_OF_JOINING">This field is required.</label>
+
+                            </div>
+                        </div>
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-primary profile-button" id="btnSaveAdmission" type="button">Submit Addmission</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" style=" margin-top: 100px;">
+
+
+                    <div class="col-md-12">
+                        <label class="labels">RESIDENTIAL ADDRESS</label>
+                        @Html.TextAreaFor(m => m.RESIDENTIAL_ADDRESS, new { @placeholder = "ADDRESS", @class = "form-control", @required = "required", @rows = 3 })
+                        <label style="display: " id="RESIDENTIAL_ADDRESS-error" class="error jquery-validation-error small form-text invalid-feedback" for="RESIDENTIAL_ADDRESS">This field is required.</label>
+
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.RESIDENTIAL_DISTRICT, new { @placeholder = "DISTRICT", @class = "form-control", @required = "required" })
+                        <label style="display: " id="RESIDENTIAL_DISTRICT-error" class="error jquery-validation-error small form-text invalid-feedback" for="RESIDENTIAL_DISTRICT">This field is required.</label>
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.RESIDENTIAL_PINCODE, new { @maxlength = "6", @minlength = "6", @placeholder = "PINCODE", @class = "form-control", @required = "required" })
+                        <label style="display: " id="RESIDENTIAL_PINCODE-error" class="error jquery-validation-error small form-text invalid-feedback" for="RESIDENTIAL_PINCODE">This field is required.</label>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <label class="labels">PERMANENT ADDRESS</label>
+                        @Html.TextAreaFor(m => m.PERMANENT_ADDRESS, new { @placeholder = "ADDRESS", @class = "form-control", @required = "required", @rows = 3 })
+                        <label style="display: " id="PERMANENT_ADDRESS-error" class="error jquery-validation-error small form-text invalid-feedback" for="PERMANENT_ADDRESS">This field is required.</label>
+                    </div>
+                    <div class="col-md-12">
+
+                        @Html.TextBoxFor(m => m.PERMANENT_DISTRICT, new { @placeholder = "DISTRICT", @class = "form-control", @required = "required" })
+                        <label style="display: " id="PERMANENT_DISTRICT-error" class="error jquery-validation-error small form-text invalid-feedback" for="PERMANENT_DISTRICT">This field is required.</label>
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.PERMANENT_PINCODE, new { @maxlength = "6", @minlength = "6", @placeholder = "PINCODE", @class = "form-control", @required = "required" })
+                        <label style="display: " id="PERMANENT_PINCODE-error" class="error jquery-validation-error small form-text invalid-feedback" for="PERMANENT_PINCODE">This field is required.</label>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

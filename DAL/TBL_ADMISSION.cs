@@ -50,6 +50,9 @@ namespace DAL
         public Nullable<decimal> PAID_AMOUNT { get; set; }
         public Nullable<bool> ISACTIVE { get; set; }
         public int USER_ID { get; set; }
+        public string PHOTO { get; set; }
+        public string FATHER_OCCUPATION { get; set; }
+        public string MOTHER_OCCUPATION { get; set; }
     
         public virtual TBL_USERS TBL_USERS { get; set; }
     }

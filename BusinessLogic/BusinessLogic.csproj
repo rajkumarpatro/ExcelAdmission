@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="BranchBL.cs" />
+    <Compile Include="AdmissionBL.cs" />
     <Compile Include="DesignationBL.cs" />
     <Compile Include="UsersBL.cs" />
     <Compile Include="SubjectBL.cs" />

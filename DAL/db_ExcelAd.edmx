@@ -45,6 +45,9 @@
           <Property Name="PAID_AMOUNT" Type="numeric" Precision="18" Scale="2" />
           <Property Name="ISACTIVE" Type="bit" />
           <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="PHOTO" Type="varchar" MaxLength="100" />
+          <Property Name="FATHER_OCCUPATION" Type="varchar" MaxLength="50" />
+          <Property Name="MOTHER_OCCUPATION" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TBL_BRANCH">
           <Key>
@@ -243,7 +246,6 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           <EntitySet Name="TBL_COURSE" EntityType="Self.TBL_COURSE" />
           <EntitySet Name="TBL_SUBJECTS" EntityType="Self.TBL_SUBJECTS" />
           <EntitySet Name="TBL_ENQUIRY" EntityType="Self.TBL_ENQUIRY" />
-          <EntitySet Name="TBL_ADMISSION" EntityType="db_exceladModel.TBL_ADMISSION" />
           <EntitySet Name="TBL_BRANCH" EntityType="db_exceladModel.TBL_BRANCH" />
           <EntitySet Name="TBL_DESIGNATION" EntityType="db_exceladModel.TBL_DESIGNATION" />
           <AssociationSet Name="FK_TBL_SUBJECTS_TBL_COURSE" Association="db_exceladModel.FK_TBL_SUBJECTS_TBL_COURSE">
@@ -251,10 +253,6 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
             <End Role="TBL_SUBJECTS" EntitySet="TBL_SUBJECTS" />
           </AssociationSet>
           <EntitySet Name="TBL_USERS" EntityType="db_exceladModel.TBL_USERS" />
-          <AssociationSet Name="FK_TBL_ADMISSION_TBL_USERS" Association="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS">
-            <End Role="TBL_USERS" EntitySet="TBL_USERS" />
-            <End Role="TBL_ADMISSION" EntitySet="TBL_ADMISSION" />
-          </AssociationSet>
           <AssociationSet Name="FK_TBL_USERS_TBL_BRANCH1" Association="db_exceladModel.FK_TBL_USERS_TBL_BRANCH1">
             <End Role="TBL_BRANCH" EntitySet="TBL_BRANCH" />
             <End Role="TBL_USERS" EntitySet="TBL_USERS" />
@@ -263,49 +261,12 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
             <End Role="TBL_DESIGNATION" EntitySet="TBL_DESIGNATION" />
             <End Role="TBL_USERS" EntitySet="TBL_USERS" />
           </AssociationSet>
+          <EntitySet Name="TBL_ADMISSION" EntityType="db_exceladModel.TBL_ADMISSION" />
+          <AssociationSet Name="FK_TBL_ADMISSION_TBL_USERS" Association="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS">
+            <End Role="TBL_USERS" EntitySet="TBL_USERS" />
+            <End Role="TBL_ADMISSION" EntitySet="TBL_ADMISSION" />
+          </AssociationSet>
           </EntityContainer>
-        <EntityType Name="TBL_ADMISSION">
-          <Key>
-            <PropertyRef Name="A_ID" />
-          </Key>
-          <Property Name="A_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DATE_OF_JOINING" Type="DateTime" Precision="3" />
-          <Property Name="APPEARING_FOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="APPEARING_YEAR" Type="Int32" />
-          <Property Name="STUDENT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DOB" Type="DateTime" Precision="3" />
-          <Property Name="FATHER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MOTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="STUDENT_CONTACT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="STUDENT_TELEGRAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="STUDENT_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PARENT_CONTACT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="PARENT_TELEGRAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="PARENT_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PERMANENT_ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="PERMANENT_DISTRICT" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="PERMANENT_PINCODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
-          <Property Name="RESIDENTIAL_ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="RESIDENTIAL_DISTRICT" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="RESIDENTIAL_PINCODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
-          <Property Name="MARKS_10TH" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="MARKS_11TH" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="MARKS_12TH" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="MEDIUM" Type="Boolean" />
-          <Property Name="SCHOOL_COLLLEGE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="CAME_THROUGH_ID" Type="Int32" />
-          <Property Name="TOTAL_FEES" Type="Int32" />
-          <Property Name="DISCOUNT_PERCENT" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="DISCOUNT_RUPEES" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PART_PAYMENT" Type="Boolean" />
-          <Property Name="FEES_PAID" Type="Boolean" />
-          <Property Name="PAYMENT_DATE" Type="DateTime" Precision="3" />
-          <Property Name="TRANSACTION_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PAID_AMOUNT" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ISACTIVE" Type="Boolean" />
-          <Property Name="USER_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TBL_USERS" Relationship="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" FromRole="TBL_ADMISSION" ToRole="TBL_USERS" />
-        </EntityType>
         <EntityType Name="TBL_BRANCH">
           <Key>
             <PropertyRef Name="BRANCH_ID" />
@@ -352,22 +313,10 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
           <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ISACTIVE" Type="Boolean" />
           <Property Name="PHOTO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TBL_ADMISSION" Relationship="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" FromRole="TBL_USERS" ToRole="TBL_ADMISSION" />
           <NavigationProperty Name="TBL_BRANCH" Relationship="db_exceladModel.FK_TBL_USERS_TBL_BRANCH1" FromRole="TBL_USERS" ToRole="TBL_BRANCH" />
           <NavigationProperty Name="TBL_DESIGNATION" Relationship="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION1" FromRole="TBL_USERS" ToRole="TBL_DESIGNATION" />
+          <NavigationProperty Name="TBL_ADMISSION" Relationship="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" FromRole="TBL_USERS" ToRole="TBL_ADMISSION" />
         </EntityType>
-        <Association Name="FK_TBL_ADMISSION_TBL_USERS">
-          <End Type="db_exceladModel.TBL_USERS" Role="TBL_USERS" Multiplicity="1" />
-          <End Type="db_exceladModel.TBL_ADMISSION" Role="TBL_ADMISSION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TBL_USERS">
-              <PropertyRef Name="USER_ID" />
-            </Principal>
-            <Dependent Role="TBL_ADMISSION">
-              <PropertyRef Name="USER_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TBL_USERS_TBL_BRANCH1">
           <End Type="db_exceladModel.TBL_BRANCH" Role="TBL_BRANCH" Multiplicity="0..1" />
           <End Type="db_exceladModel.TBL_USERS" Role="TBL_USERS" Multiplicity="*" />
@@ -389,6 +338,63 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
             </Principal>
             <Dependent Role="TBL_USERS">
               <PropertyRef Name="DESIGNATION_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TBL_ADMISSION">
+          <Key>
+            <PropertyRef Name="A_ID" />
+          </Key>
+          <Property Name="A_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATE_OF_JOINING" Type="DateTime" Precision="3" />
+          <Property Name="APPEARING_FOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APPEARING_YEAR" Type="Int32" />
+          <Property Name="STUDENT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="FATHER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MOTHER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STUDENT_CONTACT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STUDENT_TELEGRAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="STUDENT_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PARENT_CONTACT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PARENT_TELEGRAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PARENT_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERMANENT_ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PERMANENT_DISTRICT" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="PERMANENT_PINCODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="RESIDENTIAL_ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RESIDENTIAL_DISTRICT" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="RESIDENTIAL_PINCODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="MARKS_10TH" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MARKS_11TH" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MARKS_12TH" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MEDIUM" Type="Boolean" />
+          <Property Name="SCHOOL_COLLLEGE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CAME_THROUGH_ID" Type="Int32" />
+          <Property Name="TOTAL_FEES" Type="Int32" />
+          <Property Name="DISCOUNT_PERCENT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DISCOUNT_RUPEES" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PART_PAYMENT" Type="Boolean" />
+          <Property Name="FEES_PAID" Type="Boolean" />
+          <Property Name="PAYMENT_DATE" Type="DateTime" Precision="3" />
+          <Property Name="TRANSACTION_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAID_AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ISACTIVE" Type="Boolean" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="PHOTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FATHER_OCCUPATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MOTHER_OCCUPATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_USERS" Relationship="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" FromRole="TBL_ADMISSION" ToRole="TBL_USERS" />
+        </EntityType>
+        <Association Name="FK_TBL_ADMISSION_TBL_USERS">
+          <End Type="db_exceladModel.TBL_USERS" Role="TBL_USERS" Multiplicity="1" />
+          <End Type="db_exceladModel.TBL_ADMISSION" Role="TBL_ADMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_USERS">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="TBL_ADMISSION">
+              <PropertyRef Name="USER_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -435,9 +441,48 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TBL_BRANCH">
+            <EntityTypeMapping TypeName="db_exceladModel.TBL_BRANCH">
+              <MappingFragment StoreEntitySet="TBL_BRANCH">
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DESIGNATION">
+            <EntityTypeMapping TypeName="db_exceladModel.TBL_DESIGNATION">
+              <MappingFragment StoreEntitySet="TBL_DESIGNATION">
+                <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
+                <ScalarProperty Name="DESIGNATION_ID" ColumnName="DESIGNATION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_USERS">
+            <EntityTypeMapping TypeName="db_exceladModel.TBL_USERS">
+              <MappingFragment StoreEntitySet="TBL_USERS">
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
+                <ScalarProperty Name="CONTACT2" ColumnName="CONTACT2" />
+                <ScalarProperty Name="CONTACT1" ColumnName="CONTACT1" />
+                <ScalarProperty Name="FATHER_NAME" ColumnName="FATHER_NAME" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
+                <ScalarProperty Name="DESIGNATION_ID" ColumnName="DESIGNATION_ID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TBL_ADMISSION">
             <EntityTypeMapping TypeName="db_exceladModel.TBL_ADMISSION">
               <MappingFragment StoreEntitySet="TBL_ADMISSION">
+                <ScalarProperty Name="MOTHER_OCCUPATION" ColumnName="MOTHER_OCCUPATION" />
+                <ScalarProperty Name="FATHER_OCCUPATION" ColumnName="FATHER_OCCUPATION" />
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
                 <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
                 <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
                 <ScalarProperty Name="PAID_AMOUNT" ColumnName="PAID_AMOUNT" />
@@ -474,42 +519,6 @@ warning 6002: The table/view 'db_excelad.dbo.TBL_ENQUIRY' does not have a primar
                 <ScalarProperty Name="APPEARING_FOR" ColumnName="APPEARING_FOR" />
                 <ScalarProperty Name="DATE_OF_JOINING" ColumnName="DATE_OF_JOINING" />
                 <ScalarProperty Name="A_ID" ColumnName="A_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TBL_BRANCH">
-            <EntityTypeMapping TypeName="db_exceladModel.TBL_BRANCH">
-              <MappingFragment StoreEntitySet="TBL_BRANCH">
-                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
-                <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TBL_DESIGNATION">
-            <EntityTypeMapping TypeName="db_exceladModel.TBL_DESIGNATION">
-              <MappingFragment StoreEntitySet="TBL_DESIGNATION">
-                <ScalarProperty Name="DESIGNATION" ColumnName="DESIGNATION" />
-                <ScalarProperty Name="DESIGNATION_ID" ColumnName="DESIGNATION_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TBL_USERS">
-            <EntityTypeMapping TypeName="db_exceladModel.TBL_USERS">
-              <MappingFragment StoreEntitySet="TBL_USERS">
-                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
-                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
-                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
-                <ScalarProperty Name="EMAIL_ID" ColumnName="EMAIL_ID" />
-                <ScalarProperty Name="CONTACT2" ColumnName="CONTACT2" />
-                <ScalarProperty Name="CONTACT1" ColumnName="CONTACT1" />
-                <ScalarProperty Name="FATHER_NAME" ColumnName="FATHER_NAME" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
-                <ScalarProperty Name="BRANCH_ID" ColumnName="BRANCH_ID" />
-                <ScalarProperty Name="DESIGNATION_ID" ColumnName="DESIGNATION_ID" />
-                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
-                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -18,5 +18,10 @@ namespace Admission
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Session_End(Object sender, EventArgs E)
+        {
+            // Clean up session resources
+        }
     }
 }

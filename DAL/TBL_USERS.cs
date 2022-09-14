@@ -35,9 +35,9 @@ namespace DAL
         public Nullable<bool> ISACTIVE { get; set; }
         public string PHOTO { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_ADMISSION> TBL_ADMISSION { get; set; }
         public virtual TBL_BRANCH TBL_BRANCH { get; set; }
         public virtual TBL_DESIGNATION TBL_DESIGNATION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_ADMISSION> TBL_ADMISSION { get; set; }
     }
 }

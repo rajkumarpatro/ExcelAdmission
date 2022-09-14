@@ -39,7 +39,7 @@ namespace Admission.Controllers
             else
             {
                 model = new UsersModel();
-                model.DOB = DateTime.Now;
+                model.Dob = DateTime.Now;
             }
 
             var branch = await _branchBL.GetBranchList();
@@ -53,14 +53,14 @@ namespace Admission.Controllers
         [HttpPost]
         public async Task<bool> AddUser(UsersModel usersModel)
         {
-            if (usersModel.USER_ID > 0)
+            if (usersModel.UserId > 0)
             {
-                var exitingUser = await _userBL.GetUser(usersModel.USER_ID);
+                var exitingUser = await _userBL.GetUser(usersModel.UserId);
 
-                if (Request.Form.Files.Count > 0 && !(exitingUser.PHOTO??"").Equals(Request.Form.Files[0].FileName))
+                if (Request.Form.Files.Count > 0 && !(exitingUser.Photo ??"").Equals(Request.Form.Files[0].FileName))
                 {
-                    usersModel.PHOTO = FileHandler.SaveUploadedFile(Request, "profile");
-                    string fullPath = Request.MapPath(exitingUser.PHOTO);
+                    usersModel.Photo = FileHandler.SaveUploadedFile( "profile");
+                    string fullPath = "";//Request.MapPath(exitingUser.PHOTO);
                     if (System.IO.File.Exists(fullPath))
                     {
                         System.IO.File.Delete(fullPath);
@@ -71,7 +71,7 @@ namespace Admission.Controllers
             {
                 //save photo for new profile
                 if (Request.Form.Files.Count > 0)
-                    usersModel.PHOTO = FileHandler.SaveUploadedFile(Request, "profile");
+                    usersModel.Photo = FileHandler.SaveUploadedFile("profile");
             }
             
             return await _userBL.AddUsers(usersModel);

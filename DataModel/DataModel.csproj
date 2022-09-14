@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="BranchModel.cs" />
     <Compile Include="DesignationModel.cs" />
+    <Compile Include="AdmissionModel.cs" />
     <Compile Include="UsersModel.cs" />
     <Compile Include="CourseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

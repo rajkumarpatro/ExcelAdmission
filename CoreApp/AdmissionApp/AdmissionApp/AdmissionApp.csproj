@@ -8,6 +8,32 @@
     <None Include="Views\Shared\Error.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="wwwroot\Scripts\BootstrapToggle\bootstrap4-toggle.min.css" />
+    <None Include="wwwroot\Scripts\BootstrapToggle\bootstrap4-toggle.min.js" />
+    <None Include="wwwroot\Scripts\BootstrapToggle\bootstrap4-toggle.min.js.map" />
+    <None Include="wwwroot\Scripts\commonlib\bootstrap.js" />
+    <None Include="wwwroot\Scripts\commonlib\bootstrap.min.js" />
+    <None Include="wwwroot\Scripts\commonlib\jquery-3.4.1.intellisense.js" />
+    <None Include="wwwroot\Scripts\commonlib\jquery-3.4.1.js" />
+    <None Include="wwwroot\Scripts\commonlib\jquery-3.4.1.min.js" />
+    <None Include="wwwroot\Scripts\commonlib\jquery-3.4.1.min.map" />
+    <None Include="wwwroot\Scripts\commonlib\jquery-3.4.1.slim.js" />
+    <None Include="wwwroot\Scripts\commonlib\jquery-3.4.1.slim.min.js" />
+    <None Include="wwwroot\Scripts\commonlib\jquery-3.4.1.slim.min.map" />
+    <None Include="wwwroot\Scripts\commonlib\jquery.validate-vsdoc.js" />
+    <None Include="wwwroot\Scripts\commonlib\jquery.validate.js" />
+    <None Include="wwwroot\Scripts\commonlib\jquery.validate.min.js" />
+    <None Include="wwwroot\Scripts\commonlib\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\Scripts\commonlib\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\Scripts\commonlib\modernizr-2.8.3.js" />
+    <None Include="wwwroot\Scripts\custom\course\courseDatatable.js" />
+    <None Include="wwwroot\Scripts\custom\course\courseIndex.js" />
+    <None Include="wwwroot\Scripts\custom\gbl.js" />
+    <None Include="wwwroot\Scripts\custom\subject\subjectDatatable.js" />
+    <None Include="wwwroot\Scripts\custom\subject\subjectIndex.js" />
+    <None Include="wwwroot\Scripts\custom\users\users.js" />
+    <None Include="wwwroot\Scripts\custom\users\usersDatatable.js" />
+    <None Include="wwwroot\Scripts\custom\users\usersIndex.js" />
   </ItemGroup>
 
   <ItemGroup>

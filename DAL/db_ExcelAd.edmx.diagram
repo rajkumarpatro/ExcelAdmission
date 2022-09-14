@@ -8,14 +8,14 @@
         <EntityTypeShape EntityType="db_exceladModel.TBL_COURSE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_exceladModel.TBL_SUBJECTS" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="db_exceladModel.TBL_ENQUIRY" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_exceladModel.TBL_ADMISSION" Width="1.5" PointX="7.375" PointY="5.25" />
         <EntityTypeShape EntityType="db_exceladModel.TBL_BRANCH" Width="1.5" PointX="0.75" PointY="9.875" />
         <EntityTypeShape EntityType="db_exceladModel.TBL_DESIGNATION" Width="1.5" PointX="0.75" PointY="12.125" />
         <AssociationConnector Association="db_exceladModel.FK_TBL_SUBJECTS_TBL_COURSE" />
         <EntityTypeShape EntityType="db_exceladModel.TBL_USERS" Width="1.5" PointX="3" PointY="9.625" />
-        <AssociationConnector Association="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" />
         <AssociationConnector Association="db_exceladModel.FK_TBL_USERS_TBL_BRANCH1" />
         <AssociationConnector Association="db_exceladModel.FK_TBL_USERS_TBL_DESIGNATION1" />
+        <EntityTypeShape EntityType="db_exceladModel.TBL_ADMISSION" Width="1.5" PointX="5.25" PointY="7.375" />
+        <AssociationConnector Association="db_exceladModel.FK_TBL_ADMISSION_TBL_USERS" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

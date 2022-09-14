@@ -34,6 +34,7 @@ namespace BusinessLogic
             CreateMap<TBL_BRANCH, BranchModel>().ReverseMap();
             CreateMap<TBL_DESIGNATION, DesignationModel>().ReverseMap();
             CreateMap<TBL_SUBJECTS, SubjectModel>().ReverseMap();
+            CreateMap<TBL_ADMISSION, AdmissionModel>().ReverseMap();
         }
     }
 }

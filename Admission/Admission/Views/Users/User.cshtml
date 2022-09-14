@@ -15,7 +15,7 @@
                             @{ 
                                 var profilePic = Model.PHOTO?? "/Common/profile.jpg";
                             }
-                            <img id="profileimg" class="rounded-circle mt-5" width="150px" src="@profilePic" />
+                            <img id="profileimg" class="mt-5" width="150px" src="@profilePic" />
                         </div>
                         <span id="spanname" class="font-weight-bold">
                             @(Model.USER_ID == 0 ? "Your name" : Model.USER_NAME)
